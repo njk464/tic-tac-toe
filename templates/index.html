@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+    <head>
+        <title>Tic Tac Toe</title>
+     
+     
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <style>
+            @media (min-width: 1200px) {
+                .container{
+                    max-width: 700px;
+                }
+            }
+            .square:hover {
+                cursor: pointer;
+                background-color: lightblue;
+            }
+            .h {
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+            .v {
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+            }
+        </style>
+        <script>
+            resize = function() {
+                var square = $('.square').width();
+                $('.square').css({'height': square+'px'});
+            }
+            window.onload = function() {
+                resize();
+            }
+            window.onchange = function() {
+                resize()
+            }
+        </script>
+     
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+              <div id="0-1" class="square col-md-3" ></div>
+              <div id="0-1" class="square v col-md-3"></div>
+              <div id="0-2" class="square col-md-3"></div>
+            </div>
+            <div class="row">
+              <div id="1-1" class="square h col-md-3"></div>
+              <div id="1-1" class="square h v col-md-3"></div>
+              <div id="1-2" class="square h col-md-3"></div>
+            </div>
+            <div class="row">
+              <div id="2-0" class="square col-md-3"></div>
+              <div id="2-1" class="square v col-md-3"></div>
+              <div id="2-2" class="square col-md-3"></div>
+            </div>
+        </div>
+    </body>
+</html>
