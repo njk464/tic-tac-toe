@@ -1,12 +1,9 @@
 all:
 	meteor
 
-admin_all:
-	sudo meteor
-
 # Do not run if meteor is already installed!
 install:
-	sudo sh meteor.sh
+	sh meteor.sh
 
 
 # Only run this if something is wrong!
