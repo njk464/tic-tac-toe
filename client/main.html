@@ -2,108 +2,63 @@
     <title>Tic Tac Toe</title>
  
  
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <script src="js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    
-    <style>
-        @media (min-width: 1200px) {
-            .container{
-                max-width: 700px;
-            }
-        }
-        .x, .o{
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .square:hover {
-            cursor: pointer;
-            background-color: lightblue;
-        }
-        .h {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-        }
-        .v {
-            border-left: 1px solid black;
-            border-right: 1px solid black;
-        }
-    </style>
-    <script>
-        resize = function() {
-            var square = $('.square').width();
-            $('.square').css({'height': square+'px'});
-        }
-        check_spot = function(i,j) {
-            if ($("#"+i+"-"+j).hasClass("x"))
-                return 1;
-            if ($("#"+i+"-"+j).hasClass("o"))
-                return -1;
-        }
-        window.onload = function() {
-            resize();
-            var x_turn = true;
-            $('.square').on("click", function() {
-                console.log("click");
-                if (x_turn){
-                    $(this).css("background-image", "url(./x.jpg)");
-                    $(this).addClass("x");
-                    x_turn = false;
-                }
-                else {
-                    $(this).css("background-image", "url(./O.jpeg)");
-                    $(this).addClass("o");
-                    x_turn = true;
-                }
-                $(this).removeClass("square");
-                grid = [[0,0,0],
-                            [0,0,0],
-                            [0,0,0]];
-                // for (var i = 0; i < 3; i++){
-                //     for (var j = 0; i < 3; j++) {
-                //         grid[i,j] = check_spot(i,j);
-                //     }
-                // }
-                console.log(grid);
-                // $.ajax({
-                //     url: '/check',
-                //     data: $('form').serialize(),
-                //     type: 'POST',
-                //     success: function(response) {
-                //         console.log(response);
-                //     },
-                //     error: function(error) {
-                //         console.log(error);
-                //     }
-                // });
-            });
-        }
-        window.onchange = function() {
-            resize()
-        }
-        
-    </script>
  
 </head>
 <body>
+    <!-- For later user integration -->
+    <!-- <nav class="navbar navbar-dark bg-">
+       <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+        </div>
+ 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <p class="navbar-text">Signed in as Mark Otto</p>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
     <br>
     <br>
     <br>
-    <div class="container">
-        <div class="row">
-          <div id="0-0" class="square col-md-3" ></div>
-          <div id="0-1" class="square v col-md-3"></div>
-          <div id="0-2" class="square col-md-3"></div>
+    <div class="container text-center">
+        <h1>Tic-Tac-Toe</h1>
+        <br>
+        <div>
+          <div id="0-0" class=" square col-md-3 col-sm-3" ></div>
+          <div id="0-1" class="square v col-md-3 col-sm-3"></div>
+          <div id="0-2" class="square col-md-3 col-sm-3"></div>
         </div>
-        <div class="row">
-          <div id="1-1" class="square h col-md-3"></div>
-          <div id="1-1" class="square h v col-md-3"></div>
-          <div id="1-2" class="square h col-md-3"></div>
+        <div >
+          <div id="1-0" class="square h col-md-3 col-sm-3"></div>
+          <div id="1-1" class="square h v col-md-3 col-sm-3"></div>
+          <div id="1-2" class="square h col-md-3 col-sm-3"></div>
         </div>
-        <div class="row">
-          <div id="2-0" class="square col-md-3"></div>
-          <div id="2-1" class="square v col-md-3"></div>
-          <div id="2-2" class="square col-md-3"></div>
+        <div >
+          <div id="2-0" class="square col-md-3 col-sm-3"></div>
+          <div id="2-1" class="square v col-md-3 col-sm-3"></div>
+          <div id="2-2" class="square col-md-3 col-sm-3"></div>
         </div>
+        <br>
+        <br>
+        <h3 class="text-info"> X:O win ratio </h3>
+        <h4 id="score">0:0</h4>
+        <br>
+        <!-- Indicates caution should be taken with this action -->
+        <button type="button" id="new_game" class="btn btn-warning">New Game</button>
+
+        <!-- Indicates a dangerous or potentially negative action -->
+        <button type="button" id="reset_all" class="btn btn-danger">Reset Total Score</button>
     </div>
 </body>
